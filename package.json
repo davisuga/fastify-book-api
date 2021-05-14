@@ -1,12 +1,12 @@
 {
-  "name": "fastify-book-api",
+  "name": "clean-fastify-api",
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/davisuga/fastify-book-api.git",
   "author": "Davi Suga <daviciencia1@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon --exec sucrase-node ./index.ts",
+    "dev": "nodemon --exec sucrase-node ./src/server.ts",
     "build": "yarn babel src/ -d dist --extensions '.ts'",
     "start": "yarn build && nodemon dist/server.js"
   },
@@ -27,10 +27,12 @@
     "@babel/preset-typescript": "^7.13.0",
     "@swc/cli": "^0.1.35",
     "@swc/core": "^1.2.50",
+    "@types/jest": "^26.0.20",
     "@types/node": "^14.14.31",
     "eslint": "^7.21.0",
+    "jest": "^26.6.3",
     "nodemon": "^2.0.7",
     "sucrase": "^3.17.1",
-    "typescript": "https://typescript.visualstudio.com/cf7ac146-d525-443c-b23c-0d58337efebc/_apis/build/builds/74014/artifacts?artifactName=tgz&fileId=53B4D99407A93B4AF6FAEF8437B02126A8C7FEC62F1C3307DAA098F75D2CE5D602&fileName=/typescript-4.0.0-insiders.20200515.tgz"
+    "typescript": "^4.2.3"
   }
 }

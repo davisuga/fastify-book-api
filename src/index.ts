@@ -1,5 +1,9 @@
-import fastify, { FastifyInstance } from "fastify";
 import { Server, IncomingMessage, ServerResponse } from "http";
+
+import fastify, { FastifyInstance } from "fastify";
+
+import makeFastifyCallback from "./fastify-handler";
+import { getUsers, postUser, deleteUser, updateUser } from "./controllers";
 
 const server: FastifyInstance<
   Server,
@@ -8,9 +12,14 @@ const server: FastifyInstance<
 > = fastify({ logger: null });
 
 function build() {
-  server.get("/ping", async (request, reply) => {
-    return "pong\n";
+  server.get("/", async (request, reply) => {
+    return "👍";
   });
+
+  server.get("/users", makeFastifyCallback(getUsers));
+  server.post("/user", makeFastifyCallback(postUser));
+  server.delete("/user", makeFastifyCallback(deleteUser));
+  server.put("/user", makeFastifyCallback(updateUser));
   return server;
 }
 export default build;
